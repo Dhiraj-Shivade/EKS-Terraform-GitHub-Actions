@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/AmanPathak-DevOps/EKS-Terraform-GitHub-Actions.git'
+                git branch: 'master', url: 'https://github.com/Dhiraj-Shivade/EKS-Terraform-GitHub-Actions.git'
             }
         }
         stage('Terraform Init') {
@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Terraform Validate') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
                 sh 'terraform -chdir=eks/ validate'
                 }
             }
